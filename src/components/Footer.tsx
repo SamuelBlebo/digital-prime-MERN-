@@ -5,13 +5,14 @@ import {
   Container,
   ActionIcon,
   Group,
+  Image,
 } from "@mantine/core";
 import {
   IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons";
-import { MantineLogo } from "@mantine/ds";
+import Logo from "../images/digital-prime-logo.png";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -153,10 +154,18 @@ export function FooterLinks({ data }: FooterLinksProps) {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <MantineLogo size={30} />
+          <div
+            style={{
+              width: 200,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            <Image src={Logo} alt="Digital Prime Logo" />
+          </div>
           <Text size="xs" color="dimmed" className={classes.description}>
             Professional and affordable website design and development to help
-            your business stand out
+            your business stand out.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>

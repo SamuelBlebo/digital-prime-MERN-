@@ -8,10 +8,11 @@ import {
   Group,
   Button,
   Burger,
+  Image,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
-import { MantineLogo } from "@mantine/ds";
+import Logo from "../images/digital-prime-logo.png";
 
 const HEADER_HEIGHT = 60;
 
@@ -119,12 +120,14 @@ export function HeaderAction({ links }: HeaderActionProps) {
             className={classes.burger}
             size="sm"
           />
-          <MantineLogo size={28} />
+          <div style={{ width: 200, marginLeft: "auto", marginRight: "auto" }}>
+            <Image src={Logo} alt="Digital Prime Logo" />
+          </div>
         </Group>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Button radius="xl" sx={{ height: 30 }}>
+        <Button radius="md" color="yellow.5" sx={{ height: 30 }} uppercase>
           GET IN TOUCH
         </Button>
       </Container>
