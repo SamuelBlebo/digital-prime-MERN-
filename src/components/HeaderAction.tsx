@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   createStyles,
   Menu,
@@ -107,6 +108,15 @@ export function HeaderAction({ links }: HeaderActionProps) {
       >
         {link.label}
       </a>
+
+      // <Link
+      //   to={link.label}
+      //   key={link.label}
+      //   className={classes.link}
+      //   onClick={(event) => event.preventDefault()}
+      // >
+      //   {link.label}
+      // </Link>
     );
   });
 
