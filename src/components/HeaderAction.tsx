@@ -137,7 +137,13 @@ export function HeaderAction({ links }: HeaderActionProps) {
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Button radius="md" color="yellow.5" sx={{ height: 30 }} uppercase>
+        <Button
+          component="a"
+          radius="md"
+          color="yellow.5"
+          sx={{ height: 30 }}
+          href="https://twitter.com/mantinedev"
+        >
           GET IN TOUCH
         </Button>
       </Container>
