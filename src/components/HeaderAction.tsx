@@ -83,16 +83,12 @@ export function HeaderAction({ links }: HeaderActionProps) {
       return (
         <Menu key={link.label} trigger="hover" exitTransitionDuration={0}>
           <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
+            <Link to={link.link} key={link.label} className={classes.link}>
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
                 <IconChevronDown size={12} stroke={1.5} />
               </Center>
-            </a>
+            </Link>
           </Menu.Target>
           <Menu.Dropdown>{menuItems}</Menu.Dropdown>
         </Menu>
@@ -100,23 +96,9 @@ export function HeaderAction({ links }: HeaderActionProps) {
     }
 
     return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => event.preventDefault()}
-      >
+      <Link to={link.link} key={link.label} className={classes.link}>
         {link.label}
-      </a>
-
-      // <Link
-      //   to={link.label}
-      //   key={link.label}
-      //   className={classes.link}
-      //   onClick={(event) => event.preventDefault()}
-      // >
-      //   {link.label}
-      // </Link>
+      </Link>
     );
   });
 
@@ -137,13 +119,7 @@ export function HeaderAction({ links }: HeaderActionProps) {
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Button
-          component="a"
-          radius="md"
-          color="yellow.5"
-          sx={{ height: 30 }}
-          href="https://twitter.com/mantinedev"
-        >
+        <Button component="a" radius="md" color="yellow.5" sx={{ height: 30 }}>
           GET IN TOUCH
         </Button>
       </Container>
