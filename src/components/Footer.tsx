@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   createStyles,
   Text,
@@ -131,12 +132,11 @@ export function FooterLinks({ data }: FooterLinksProps) {
 
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
-      <Text<"a">
+      <Text
         key={index}
         className={classes.link}
-        component="a"
-        href={link.link}
-        onClick={(event) => event.preventDefault()}
+        component={Link}
+        to={link.link}
       >
         {link.label}
       </Text>

@@ -119,7 +119,13 @@ export function HeaderAction({ links }: HeaderActionProps) {
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Button component="a" radius="md" color="yellow.5" sx={{ height: 30 }}>
+        <Button
+          component={Link}
+          to="/contact"
+          radius="md"
+          color="yellow.5"
+          sx={{ height: 30 }}
+        >
           GET IN TOUCH
         </Button>
       </Container>

@@ -10,6 +10,7 @@ import Testimonials from "./pages/Testimonials";
 import Pricesfaqs from "./pages/Pricesfaqs";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
+import Notfound from "./pages/Notfound";
 
 // imported Components
 import { HeaderAction } from "./components/HeaderAction";
@@ -73,6 +74,7 @@ export default function App() {
           <Route path="/pricesfaqs" element={<Pricesfaqs />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Notfound />} />
         </Routes>
 
         {/* Footer */}
@@ -84,7 +86,7 @@ export default function App() {
                 { label: "About", link: "/about" },
                 { label: "Testimonials", link: "/testimonials" },
                 { label: "Price & FAQs", link: "pricesfaqs" },
-                { label: "Blogs", link: "blog" },
+                { label: "Blogs", link: "blogs" },
                 { label: "Contact", link: "contact" },
               ],
             },
