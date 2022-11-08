@@ -9,7 +9,12 @@ import {
   Group,
   Button,
   Burger,
+  Drawer,
   Image,
+  ScrollArea,
+  Divider,
+  // UnstyledButton,
+  // Collapse,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
@@ -29,6 +34,13 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("sm")]: {
       display: "none",
     },
+  },
+
+  mobileLinks: {
+    display: "inline-block",
+    alignItems: "right",
+    textAlign: "right",
+    fontWeight: 500,
   },
 
   burger: {
@@ -68,13 +80,19 @@ const useStyles = createStyles((theme) => ({
     marginRight: "auto",
     //
 
-    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+    [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
       width: 150,
     },
   },
 
   button: {
     [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+      display: "none",
+    },
+  },
+
+  hiddenDesktop: {
+    [theme.fn.largerThan("sm")]: {
       display: "none",
     },
   },
@@ -90,7 +108,9 @@ interface HeaderActionProps {
 
 export function HeaderAction({ links }: HeaderActionProps) {
   const { classes } = useStyles();
-  const [opened, { toggle }] = useDisclosure(false);
+  // const [opened, { toggle }] = useDisclosure(false);
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
+    useDisclosure(false);
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.link}>{item.label}</Menu.Item>
@@ -120,33 +140,63 @@ export function HeaderAction({ links }: HeaderActionProps) {
   });
 
   return (
-    <Header height={HEADER_HEIGHT} sx={{ borderBottom: 0 }} mb={120}>
-      <Container className={classes.inner} fluid>
-        <Group>
-          <div className={classes.logo}>
-            <Image src={Logo} alt="Digital Prime Logo" />
-          </div>
-        </Group>
-        <Group spacing={5} className={classes.links}>
-          {items}
-        </Group>
-        <Button
-          className={classes.button}
-          component={Link}
-          to="/contact"
-          radius="md"
-          color="yellow.5"
-          sx={{ height: 30 }}
-        >
-          GET IN TOUCH
-        </Button>
-        <Burger
-          opened={opened}
-          onClick={toggle}
-          className={classes.burger}
-          size="sm"
-        />
-      </Container>
-    </Header>
+    <>
+      <Header height={HEADER_HEIGHT} sx={{ borderBottom: 0 }} mb={120}>
+        <Container className={classes.inner} fluid>
+          <Group>
+            <div className={classes.logo}>
+              <Image src={Logo} alt="Digital Prime Logo" />
+            </div>
+          </Group>
+          <Group spacing={5} className={classes.links}>
+            {items}
+          </Group>
+          <Button
+            className={classes.button}
+            component={Link}
+            to="/contact"
+            radius="md"
+            color="yellow.5"
+            sx={{ height: 30 }}
+          >
+            GET IN TOUCH
+          </Button>
+          <Burger
+            opened={drawerOpened}
+            onClick={toggleDrawer}
+            // opened={opened}
+            // onClick={toggle}
+            className={classes.burger}
+            size="sm"
+          />
+        </Container>
+      </Header>
+
+      <Drawer
+        opened={drawerOpened}
+        onClose={closeDrawer}
+        size="100%"
+        padding="md"
+        title="Menu"
+        className={classes.hiddenDesktop}
+        zIndex={1000000}
+      >
+        {/* Drawer content */}
+        <ScrollArea sx={{ height: "calc(100vh - 60px)" }} mx="-md">
+          <Divider my="sm" />
+
+          <Group spacing={5} className={classes.mobileLinks}>
+            {items}
+          </Group>
+
+          <Divider my="sm" />
+
+          <Group position="center" grow pb="xl" px="md">
+            <Button variant="default">Log in</Button>
+            <Button>Sign up</Button>
+          </Group>
+        </ScrollArea>
+      </Drawer>
+    </>
   );
 }
