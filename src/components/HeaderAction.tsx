@@ -61,6 +61,23 @@ const useStyles = createStyles((theme) => ({
   linkLabel: {
     marginRight: 5,
   },
+
+  logo: {
+    width: 200,
+    marginLeft: "auto",
+    marginRight: "auto",
+    //
+
+    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+      width: 150,
+    },
+  },
+
+  button: {
+    [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+      display: "none",
+    },
+  },
 }));
 
 interface HeaderActionProps {
@@ -75,7 +92,7 @@ export function HeaderAction({ links }: HeaderActionProps) {
   const { classes } = useStyles();
   const [opened, { toggle }] = useDisclosure(false);
   const items = links.map((link) => {
-    const menuItems = link.links.map((item) => (
+    const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.link}>{item.label}</Menu.Item>
     ));
 
@@ -106,13 +123,7 @@ export function HeaderAction({ links }: HeaderActionProps) {
     <Header height={HEADER_HEIGHT} sx={{ borderBottom: 0 }} mb={120}>
       <Container className={classes.inner} fluid>
         <Group>
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            className={classes.burger}
-            size="sm"
-          />
-          <div style={{ width: 200, marginLeft: "auto", marginRight: "auto" }}>
+          <div className={classes.logo}>
             <Image src={Logo} alt="Digital Prime Logo" />
           </div>
         </Group>
@@ -120,6 +131,7 @@ export function HeaderAction({ links }: HeaderActionProps) {
           {items}
         </Group>
         <Button
+          className={classes.button}
           component={Link}
           to="/contact"
           radius="md"
@@ -128,6 +140,12 @@ export function HeaderAction({ links }: HeaderActionProps) {
         >
           GET IN TOUCH
         </Button>
+        <Burger
+          opened={opened}
+          onClick={toggle}
+          className={classes.burger}
+          size="sm"
+        />
       </Container>
     </Header>
   );
