@@ -9,7 +9,7 @@ import Testimonials from "./pages/Testimonials";
 import Pricesfaqs from "./pages/Pricesfaqs";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-import Notfound from "./pages/Notfound";
+import { NotFound } from "./pages/NotFound";
 
 // imported Components
 // import { HeaderAction } from "./components/HeaderAction";
@@ -31,8 +31,7 @@ export default function App() {
           <Route path="/pricesfaqs" element={<Pricesfaqs />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="mailto:info@digitalprimegh.com" />
-          <Route path="*" element={<Notfound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         {/* Footer */}
