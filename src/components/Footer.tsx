@@ -176,7 +176,11 @@ export function FooterLinks({ data }: FooterLinksProps) {
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg">
+          <ActionIcon
+            component="a"
+            href="https://twitter.com/digitalprimegh"
+            size="lg"
+          >
             <IconBrandTwitter size={18} stroke={1.5} />
           </ActionIcon>
           <ActionIcon size="lg">

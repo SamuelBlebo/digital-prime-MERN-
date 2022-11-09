@@ -12,7 +12,8 @@ import Contact from "./pages/Contact";
 import Notfound from "./pages/Notfound";
 
 // imported Components
-import { HeaderAction } from "./components/HeaderAction";
+// import { HeaderAction } from "./components/HeaderAction";
+import { HeaderMegaMenu } from "./components/HeaderMegaMenu";
 import { FooterLinks } from "./components/Footer";
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
     <Router>
       <MantineProvider withGlobalStyles withNormalizeCSS>
         {/* Header & Navigation */}
-        <HeaderAction
+        <HeaderMegaMenu />
+        {/* <HeaderAction
           links={[
             {
               link: "/",
@@ -63,7 +65,7 @@ export default function App() {
             //   ],
             // },
           ]}
-        />
+        /> */}
 
         {/* Routes */}
         <Routes>
