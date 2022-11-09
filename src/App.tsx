@@ -22,50 +22,6 @@ export default function App() {
       <MantineProvider withGlobalStyles withNormalizeCSS>
         {/* Header & Navigation */}
         <HeaderMegaMenu />
-        {/* <HeaderAction
-          links={[
-            {
-              link: "/",
-              label: "Home",
-              links: [],
-            },
-            {
-              link: "about",
-              label: "About",
-              links: [],
-            },
-            {
-              link: "testimonials",
-              label: "Testimonials",
-              links: [],
-            },
-            {
-              link: "pricesfaqs",
-              label: "Price & FAQS",
-              links: [],
-            },
-            {
-              link: "blogs",
-              label: "Blog",
-              links: [],
-            },
-
-            // {
-            //   link: "zoo",
-            //   label: "loo",
-            //   links: [
-            //     {
-            //       link: "baz",
-            //       label: "boo",
-            //     },
-            //     {
-            //       link: "goo",
-            //       label: "moo",
-            //     },
-            //   ],
-            // },
-          ]}
-        /> */}
 
         {/* Routes */}
         <Routes>
@@ -75,6 +31,7 @@ export default function App() {
           <Route path="/pricesfaqs" element={<Pricesfaqs />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="mailto:info@digitalprimegh.com" />
           <Route path="*" element={<Notfound />} />
         </Routes>
 
@@ -96,14 +53,14 @@ export default function App() {
               links: [
                 {
                   label: "info@digitalprimegh.com",
-                  link: "mailto:info@digitalprimegh.com",
+                  link: "#",
                 },
-                { label: "+(233) 54 939 0344", link: "tel:549390344" },
+                { label: "+(233) 54 939 0344", link: "#" },
                 {
                   label: "Fiapa Close , Spintex, Accra, Ghana",
-                  link: "contact",
+                  link: "#",
                 },
-                { label: "Contact Form", link: "contact/#quote" },
+                { label: "Contact Form", link: "#" },
               ],
             },
           ]}

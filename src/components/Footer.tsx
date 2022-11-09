@@ -179,6 +179,7 @@ export function FooterLinks({ data }: FooterLinksProps) {
           <ActionIcon
             component="a"
             href="https://twitter.com/digitalprimegh"
+            target="_blank"
             size="lg"
           >
             <IconBrandTwitter size={18} stroke={1.5} />
@@ -186,7 +187,12 @@ export function FooterLinks({ data }: FooterLinksProps) {
           <ActionIcon size="lg">
             <IconBrandYoutube size={18} stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg">
+          <ActionIcon
+            component="a"
+            href="https://www.instagram.com/digitalprimegh/"
+            target="_blank"
+            size="lg"
+          >
             <IconBrandInstagram size={18} stroke={1.5} />
           </ActionIcon>
         </Group>

@@ -4,7 +4,7 @@ const Pricesfaqs = () => {
   return (
     <>
       <div>
-        <h1> Price & FAQSs </h1>
+        <h1> Price & FAQs </h1>
       </div>
     </>
   );
