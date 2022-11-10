@@ -1,10 +1,15 @@
 import React from "react";
 import { Hero } from "../components/Hero";
+import { GetInTouch } from "../components/GetInTouch";
+import "./contact.css";
 
 const Contact = () => {
   return (
     <>
-      <Hero />
+      <div className="container">
+        <Hero />
+        <GetInTouch />
+      </div>
     </>
   );
 };
