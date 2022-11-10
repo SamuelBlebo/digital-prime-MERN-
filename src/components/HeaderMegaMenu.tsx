@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   createStyles,
@@ -93,12 +94,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function HeaderMegaMenu() {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-    useDisclosure(false);
+  const [
+    drawerOpened,
+    { toggle: toggleDrawer, close: closeDrawer },
+  ] = useDisclosure(false);
   const { classes, theme } = useStyles();
 
   return (
-    <Box pb={120}>
+    <Box>
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>
           <Link to="/">
@@ -131,7 +134,7 @@ export function HeaderMegaMenu() {
 
           <Group className={classes.hiddenMobile}>
             <Button component={Link} to="/contact" color="yellow.5" uppercase>
-              Contact Us
+              Get In Touch
             </Button>
           </Group>
 
@@ -182,7 +185,7 @@ export function HeaderMegaMenu() {
 
           <Group position="center" grow pb="xl" px="md">
             <Button component={Link} to="/contact" color="yellow.5" uppercase>
-              Contact Us
+              Get In Touch
             </Button>
           </Group>
         </ScrollArea>
