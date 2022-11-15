@@ -1,16 +1,18 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 import { GetInTouch } from "../components/GetInTouch";
-import "./contact.css";
+import { ContactBoxes } from "../components/ContactBoxes";
 
 const Contact = () => {
   return (
-    <>
+    <div>
       <div className="container">
         <Hero />
-        <GetInTouch />
+        <ContactBoxes />
+
+        {/* <GetInTouch /> */}
       </div>
-    </>
+    </div>
   );
 };
 

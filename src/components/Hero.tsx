@@ -15,8 +15,9 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "#ffcc00",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    paddingTop: theme.spacing.xl * 3,
-    paddingBottom: theme.spacing.xl * 3,
+    paddingTop: theme.spacing.md * 3,
+    paddingBottom: theme.spacing.md * 3,
+    paddingLeft: theme.spacing.xl * 3,
   },
 
   inner: {
@@ -47,10 +48,10 @@ const useStyles = createStyles((theme) => ({
   title: {
     color: theme.black,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 900,
+    fontWeight: 800,
     lineHeight: 1.05,
     maxWidth: 500,
-    fontSize: 48,
+    fontSize: 35,
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
@@ -92,11 +93,6 @@ export function Hero() {
   const { classes } = useStyles();
   return (
     <div className={classes.root}>
-      {/* <SimpleGrid
-        spacing={80}
-        cols={2}
-        breakpoints={[{ maxWidth: "sm", cols: 1, spacing: 40 }]}
-      > */}
       <Container size="lg">
         <div className={classes.inner}>
           <div className={classes.content}>
@@ -105,9 +101,7 @@ export function Hero() {
             <Text className={classes.description} mt={30}>
               Get in touch with us, our team is ready to assist you. Lorem ipsum
               dolor sit amet consectetur adipisicing elit. Cupiditate veritatis
-              quidem beatae ipsam, tempore, exercitationem veniam consequatur
-              voluptatibus vel amet nostrum incidunt iusto illo. Incidunt
-              voluptate facere itaque commodi voluptates.
+              quidem beatae ipsam, tempore, exercitationem.
             </Text>
             {/* <Image
               src={image}
@@ -121,7 +115,6 @@ export function Hero() {
           </div>
         </div>
       </Container>
-      {/* </SimpleGrid> */}
     </div>
   );
 }

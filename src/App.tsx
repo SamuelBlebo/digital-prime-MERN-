@@ -19,7 +19,19 @@ import { FooterLinks } from "./components/Footer";
 export default function App() {
   return (
     <Router>
-      <MantineProvider withGlobalStyles withNormalizeCSS>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          breakpoints: {
+            xs: 500,
+            sm: 800,
+            md: 1000,
+            lg: 1200,
+            xl: 1400,
+          },
+        }}
+      >
         {/* Header & Navigation */}
         <HeaderMegaMenu />
 

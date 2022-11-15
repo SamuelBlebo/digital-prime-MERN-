@@ -27,6 +27,10 @@ const useStyles = createStyles((theme) => {
           ? theme.colors.dark[8]
           : theme.colors.gray[2]
       }`,
+      paddingTop: theme.spacing.xl * 2,
+      paddingBottom: theme.spacing.xl * 2,
+      paddingLeft: theme.spacing.xl * 4,
+      paddingRight: theme.spacing.xl * 7,
 
       [BREAKPOINT]: {
         flexDirection: "column",
@@ -76,10 +80,13 @@ const useStyles = createStyles((theme) => {
       position: "relative",
       borderRadius: theme.radius.lg - 2,
       backgroundImage: `url(${contactbg})`,
+      backgroundColor: "#ffcc00",
       backgroundSize: "cover",
       backgroundPosition: "center",
       border: "1px solid transparent",
       padding: theme.spacing.xl,
+      paddingLeft: theme.spacing.xl * 3,
+      paddingRight: theme.spacing.xl * 4,
       flex: "0 0 280px",
 
       [BREAKPOINT]: {
@@ -152,7 +159,11 @@ export function GetInTouch() {
             />
 
             <Group position="right" mt="md">
-              <Button type="submit" className={classes.control}>
+              <Button
+                color="yellow.5"
+                type="submit"
+                className={classes.control}
+              >
                 Send message
               </Button>
             </Group>
