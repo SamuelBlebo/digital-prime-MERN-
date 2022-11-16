@@ -7,6 +7,7 @@ import {
   Title,
   Text,
   Button,
+  Grid,
 } from "@mantine/core";
 import image from "../images/contactus.svg";
 
@@ -14,34 +15,27 @@ const useStyles = createStyles((theme) => ({
   root: {
     backgroundColor: "#ffcc00",
     backgroundSize: "cover",
-    backgroundPosition: "center",
-    paddingTop: theme.spacing.md * 3,
-    paddingBottom: theme.spacing.md * 3,
-    paddingLeft: theme.spacing.xl * 3,
-  },
+    padding: theme.spacing.xl * 5,
 
-  inner: {
-    display: "flex",
-    justifyContent: "space-between",
+    [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+      padding: theme.spacing.xl * 2,
+      paddingTop: 120,
+    },
+    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+      padding: theme.spacing.xl * 3,
+    },
 
-    [theme.fn.smallerThan("md")]: {
-      flexDirection: "column",
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      padding: theme.spacing.xl * 2,
+      paddingTop: 80,
     },
   },
+
+  inner: {},
 
   image: {
     [theme.fn.smallerThan("md")]: {
       display: "none",
-    },
-  },
-
-  content: {
-    paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
-    marginRight: theme.spacing.xl * 3,
-
-    [theme.fn.smallerThan("md")]: {
-      marginRight: 0,
     },
   },
 
@@ -64,6 +58,7 @@ const useStyles = createStyles((theme) => ({
     color: theme.black,
     opacity: 0.75,
     maxWidth: 500,
+    textAlign: "justify",
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
@@ -93,28 +88,34 @@ export function Hero() {
   const { classes } = useStyles();
   return (
     <div className={classes.root}>
-      <Container size="lg">
-        <div className={classes.inner}>
-          <div className={classes.content}>
-            <Title className={classes.title}>Contact Us</Title>
+      <Grid justify="center" align="center" gutter="xl">
+        <Grid.Col md={4} lg={5}>
+          <div className={classes.inner}>
+            <div>
+              <Title className={classes.title}>Contact Us</Title>
 
-            <Text className={classes.description} mt={30}>
-              Get in touch with us, our team is ready to assist you. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Cupiditate veritatis
-              quidem beatae ipsam, tempore, exercitationem.
-            </Text>
-            {/* <Image
+              <Text className={classes.description} mt={30}>
+                Get in touch with us, our team is ready to assist you. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+                veritatis quidem beatae ipsam, tempore, exercitationem.
+              </Text>
+
+              <Button color="dark" className={classes.control} mt={40}>
+                Get started
+              </Button>
+            </div>
+          </div>
+        </Grid.Col>
+        <Grid.Col md={4} lg={5}>
+          <div className={classes.inner}>
+            <Image
               src={image}
               alt="Digital Prime Logo"
               className={classes.desktopImage}
-            /> */}
-
-            <Button color="dark" className={classes.control} mt={40}>
-              Get started
-            </Button>
+            />
           </div>
-        </div>
-      </Container>
+        </Grid.Col>
+      </Grid>
     </div>
   );
 }
