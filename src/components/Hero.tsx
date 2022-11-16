@@ -63,11 +63,14 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
     },
+    [theme.fn.smallerThan("md")]: {
+      fontSize: 14,
+    },
   },
 
   control: {
     [theme.fn.smallerThan("md")]: {
-      width: "100%",
+      width: "50%",
     },
   },
 

@@ -10,12 +10,10 @@ import { IconAt, IconPhone, IconMap2 } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   root: {
-    borderRadius: 20,
     marginTop: 50,
-    marginBottom: 50,
     marginLeft: 120,
     marginRight: 120,
-    padding: theme.spacing.xl * 2,
+    paddingTop: theme.spacing.xl * 2,
 
     [`@media (max-width: ${theme.breakpoints.md}px)`]: {
       marginTop: 35,
