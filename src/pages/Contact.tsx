@@ -10,7 +10,7 @@ const Contact = () => {
         <Hero />
         <ContactBoxes />
 
-        {/* <GetInTouch /> */}
+        <GetInTouch />
       </div>
     </div>
   );

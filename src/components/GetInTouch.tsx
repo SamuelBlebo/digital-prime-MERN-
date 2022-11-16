@@ -1,175 +1,99 @@
 import React from "react";
 import {
-  Paper,
-  Text,
   TextInput,
   Textarea,
-  Button,
-  Group,
   SimpleGrid,
-  createStyles,
+  Group,
+  Title,
+  Button,
+  Grid,
 } from "@mantine/core";
-import { ContactIconsList } from "../icons/ContactIcons";
-import contactbg from "../images/contactbg.svg";
-
-const useStyles = createStyles((theme) => {
-  const BREAKPOINT = theme.fn.smallerThan("sm");
-
-  return {
-    wrapper: {
-      display: "flex",
-      backgroundColor:
-        theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
-      borderRadius: theme.radius.lg,
-      padding: 4,
-      border: `1px solid ${
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[8]
-          : theme.colors.gray[2]
-      }`,
-      paddingTop: theme.spacing.xl * 2,
-      paddingBottom: theme.spacing.xl * 2,
-      paddingLeft: theme.spacing.xl * 4,
-      paddingRight: theme.spacing.xl * 7,
-
-      [BREAKPOINT]: {
-        flexDirection: "column",
-      },
-    },
-
-    form: {
-      boxSizing: "border-box",
-      flex: 1,
-      padding: theme.spacing.xl,
-      paddingLeft: theme.spacing.xl * 2,
-      borderLeft: 0,
-
-      [BREAKPOINT]: {
-        padding: theme.spacing.md,
-        paddingLeft: theme.spacing.md,
-      },
-    },
-
-    fields: {
-      marginTop: -12,
-    },
-
-    fieldInput: {
-      flex: 1,
-
-      "& + &": {
-        marginLeft: theme.spacing.md,
-
-        [BREAKPOINT]: {
-          marginLeft: 0,
-          marginTop: theme.spacing.md,
-        },
-      },
-    },
-
-    fieldsGroup: {
-      display: "flex",
-
-      [BREAKPOINT]: {
-        flexDirection: "column",
-      },
-    },
-
-    contacts: {
-      boxSizing: "border-box",
-      position: "relative",
-      borderRadius: theme.radius.lg - 2,
-      backgroundImage: `url(${contactbg})`,
-      backgroundColor: "#ffcc00",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      border: "1px solid transparent",
-      padding: theme.spacing.xl,
-      paddingLeft: theme.spacing.xl * 3,
-      paddingRight: theme.spacing.xl * 4,
-      flex: "0 0 280px",
-
-      [BREAKPOINT]: {
-        marginBottom: theme.spacing.sm,
-        paddingLeft: theme.spacing.md,
-      },
-    },
-
-    title: {
-      marginBottom: theme.spacing.xl * 1.5,
-      fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-
-      [BREAKPOINT]: {
-        marginBottom: theme.spacing.xl,
-      },
-    },
-
-    control: {
-      [BREAKPOINT]: {
-        flex: 1,
-      },
-    },
-  };
-});
+import { useForm } from "@mantine/form";
 
 export function GetInTouch() {
-  const { classes } = useStyles();
+  const form = useForm({
+    initialValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    validate: {
+      name: (value) => value.trim().length < 2,
+      email: (value) => !/^\S+@\S+$/.test(value),
+      subject: (value) => value.trim().length === 0,
+    },
+  });
 
   return (
-    <Paper shadow="md" radius="lg" p="xl">
-      <div className={classes.wrapper}>
-        <div className={classes.contacts}>
-          <Text
-            size="lg"
-            weight={700}
-            className={classes.title}
-            sx={{ color: "#fff" }}
-          >
-            Contact information
-          </Text>
+    <div>
+      <Grid>
+        <Grid.Col md={6} lg={6}>
+          1
+        </Grid.Col>
+        <Grid.Col md={6} lg={6}>
+          <form onSubmit={form.onSubmit(() => {})}>
+            <Title
+              order={2}
+              size="h1"
+              sx={(theme) => ({
+                fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+              })}
+              weight={900}
+              align="center"
+            >
+              Get in touch
+            </Title>
 
-          <ContactIconsList variant="white" />
-        </div>
-
-        <form
-          className={classes.form}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Text size="lg" weight={700} className={classes.title}>
-            Get in touch
-          </Text>
-
-          <div className={classes.fields}>
-            <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-              <TextInput label="Your name" placeholder="Your name" />
+            <SimpleGrid
+              cols={2}
+              mt="xl"
+              breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+            >
               <TextInput
-                label="Your email"
-                placeholder="hello@mantine.dev"
-                required
+                label="Name"
+                placeholder="Your name"
+                name="name"
+                variant="filled"
+                {...form.getInputProps("name")}
+              />
+              <TextInput
+                label="Email"
+                placeholder="Your email"
+                name="email"
+                variant="filled"
+                {...form.getInputProps("email")}
               />
             </SimpleGrid>
 
-            <TextInput mt="md" label="Subject" placeholder="Subject" required />
-
+            <TextInput
+              label="Subject"
+              placeholder="Subject"
+              mt="md"
+              name="subject"
+              variant="filled"
+              {...form.getInputProps("subject")}
+            />
             <Textarea
               mt="md"
-              label="Your message"
-              placeholder="Please include all relevant information"
-              minRows={3}
+              label="Message"
+              placeholder="Your message"
+              maxRows={10}
+              minRows={5}
+              autosize
+              name="message"
+              variant="filled"
+              {...form.getInputProps("subject")}
             />
 
-            <Group position="right" mt="md">
-              <Button
-                color="yellow.5"
-                type="submit"
-                className={classes.control}
-              >
+            <Group position="center" mt="xl">
+              <Button type="submit" size="md">
                 Send message
               </Button>
             </Group>
-          </div>
-        </form>
-      </div>
-    </Paper>
+          </form>
+        </Grid.Col>
+      </Grid>
+    </div>
   );
 }
