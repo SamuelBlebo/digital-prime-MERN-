@@ -52,7 +52,12 @@ const useStyles = createStyles((theme) => ({
       paddingLeft: 30,
       paddingRight: 30,
     },
+
+    "&:hover": {
+      backgroundColor: theme.colors.yellow[5],
+    },
   },
+
   actionIcon: {
     display: "table",
     margin: "auto",

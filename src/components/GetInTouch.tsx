@@ -13,7 +13,7 @@ import { useForm } from "@mantine/form";
 
 const useStyles = createStyles((theme) => ({
   root: {
-    padding: theme.spacing.xl * 5,
+    padding: theme.spacing.xl * 4,
 
     [`@media (max-width: ${theme.breakpoints.md}px)`]: {
       padding: theme.spacing.xl * 3,
@@ -26,6 +26,7 @@ const useStyles = createStyles((theme) => ({
 
   map: {
     padding: 50,
+    borderRadius: 50,
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       display: "none",
     },
@@ -36,6 +37,10 @@ const useStyles = createStyles((theme) => ({
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       padding: 20,
     },
+  },
+
+  inputForm: {
+    marginTop: 20,
   },
 }));
 
@@ -62,8 +67,8 @@ export function GetInTouch() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.4732530887395!2d-0.08977658474947321!3d5.644452534321766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf8409f2c1bf61%3A0xc4fe5a3df6c9b2e6!2sDigital%20Prime!5e0!3m2!1sen!2sus!4v1668629882541!5m2!1sen!2sus"
             width="100%"
-            height="480"
-            style={{ border: 0 }}
+            height="400"
+            style={{ border: 0, borderRadius: 20 }}
           ></iframe>
         </Grid.Col>
         <Grid.Col className={classes.form} md={6} lg={5}>
@@ -86,14 +91,12 @@ export function GetInTouch() {
               breakpoints={[{ maxWidth: "sm", cols: 1 }]}
             >
               <TextInput
-                label="Name"
                 placeholder="Your name"
                 name="name"
                 variant="filled"
                 {...form.getInputProps("name")}
               />
               <TextInput
-                label="Email"
                 placeholder="Your email"
                 name="email"
                 variant="filled"
@@ -102,7 +105,6 @@ export function GetInTouch() {
             </SimpleGrid>
 
             <TextInput
-              label="Subject"
               placeholder="Subject"
               mt="md"
               name="subject"
@@ -111,7 +113,6 @@ export function GetInTouch() {
             />
             <Textarea
               mt="md"
-              label="Message"
               placeholder="Your message"
               maxRows={10}
               minRows={5}
