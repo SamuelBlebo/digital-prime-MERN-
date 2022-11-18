@@ -9,7 +9,7 @@ import {
   Button,
   Grid,
 } from "@mantine/core";
-import image from "../images/contactus.svg";
+// import image from ".../images/contactus.svg";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -87,7 +87,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function Hero() {
+export function AboutHero() {
   const { classes } = useStyles();
   return (
     <div className={classes.root}>
@@ -95,12 +95,13 @@ export function Hero() {
         <Grid.Col md={4} lg={5}>
           <div className={classes.inner}>
             <div>
-              <Title className={classes.title}>Contact Us</Title>
+              <Title className={classes.title}>About US</Title>
 
               <Text className={classes.description} mt={30}>
-                Get in touch with us, our team is ready to assist you. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-                veritatis quidem beatae ipsam, tempore, exercitationem.
+                Get to know about Digital Prime Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Rem, tempora et magnam tempore
+                distinctio quae amet sapiente error neque consequatur quos dolor
+                laboriosam architecto totam dolore ab, numquam quo dolorem.
               </Text>
 
               <Button color="dark" className={classes.control} mt={40}>
@@ -110,13 +111,13 @@ export function Hero() {
           </div>
         </Grid.Col>
         <Grid.Col md={4} lg={5}>
-          <div className={classes.inner}>
+          {/* <div className={classes.inner}>
             <Image
               src={image}
               alt="Digital Prime Logo"
               className={classes.desktopImage}
             />
-          </div>
+          </div> */}
         </Grid.Col>
       </Grid>
     </div>

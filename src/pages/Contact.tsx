@@ -1,18 +1,18 @@
 import React from "react";
-import { Hero } from "../components/Hero";
-import { GetInTouch } from "../components/GetInTouch";
-import { ContactBoxes } from "../components/ContactBoxes";
+import { ContactHero } from "../components/contact/ContactHero";
+import { GetInTouch } from "../components/contact/GetInTouch";
+import { ContactBoxes } from "../components/contact/ContactBoxes";
 
 const Contact = () => {
   return (
-    <div>
-      <div className="container">
-        <Hero />
+    <>
+      <div>
+        <ContactHero />
         <ContactBoxes />
 
         <GetInTouch />
       </div>
-    </div>
+    </>
   );
 };
 
