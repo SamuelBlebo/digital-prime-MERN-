@@ -52,7 +52,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function NotFound() {
+export function Notfound() {
   const { classes } = useStyles();
 
   return (
