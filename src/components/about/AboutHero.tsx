@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   //   SimpleGrid,
   Image,
@@ -9,13 +10,13 @@ import {
   Button,
   Grid,
 } from "@mantine/core";
-// import image from ".../images/contactus.svg";
 
 const useStyles = createStyles((theme) => ({
   root: {
     backgroundColor: "#ffcc00",
     backgroundSize: "cover",
     padding: theme.spacing.xl * 5,
+    paddingBottom: 300,
 
     [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
       padding: theme.spacing.xl * 2,
@@ -98,27 +99,24 @@ export function AboutHero() {
               <Title className={classes.title}>About US</Title>
 
               <Text className={classes.description} mt={30}>
-                Get to know about Digital Prime Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit. Rem, tempora et magnam tempore
-                distinctio quae amet sapiente error neque consequatur quos dolor
-                laboriosam architecto totam dolore ab, numquam quo dolorem.
+                Get to know about digital prime. Our team of programmers and
+                designers are well versed and enjoys bringing smiles to clients.
+                A happy client is all we work to achieve.
               </Text>
 
-              <Button color="dark" className={classes.control} mt={40}>
-                Get started
+              <Button
+                component={Link}
+                to="/contact"
+                color="dark"
+                className={classes.control}
+                mt={40}
+              >
+                Contact Us
               </Button>
             </div>
           </div>
         </Grid.Col>
-        <Grid.Col md={4} lg={5}>
-          {/* <div className={classes.inner}>
-            <Image
-              src={image}
-              alt="Digital Prime Logo"
-              className={classes.desktopImage}
-            />
-          </div> */}
-        </Grid.Col>
+        <Grid.Col md={4} lg={5}></Grid.Col>
       </Grid>
     </div>
   );
