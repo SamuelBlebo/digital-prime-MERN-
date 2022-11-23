@@ -33,12 +33,24 @@ const useStyles = createStyles((theme) => ({
       marginBottom: 15,
       marginLeft: 30,
       marginRight: 30,
-      padding: theme.spacing.sm * 2,
+      padding: theme.spacing.sm * 3,
     },
   },
 
   header: {
     paddingLeft: 80,
+    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+      fontSize: 18,
+      paddingLeft: 0,
+      lineHeight: 1.2,
+    },
+
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      fontSize: 14,
+      paddingLeft: 0,
+      lineHeight: 1.2,
+      marginBottom: 40,
+    },
   },
 
   iconBox: {
@@ -52,11 +64,12 @@ const useStyles = createStyles((theme) => ({
     borderBottomLeftRadius: 0,
 
     [`@media (max-width: ${theme.breakpoints.md}px)`]: {
-      paddingLeft: 50,
-      paddingRight: 50,
+      paddingLeft: 20,
+      paddingRight: 20,
     },
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      paddingTop: 20,
+      lineHeight: 1,
+      paddingTop: 10,
       paddingBottom: 20,
       paddingLeft: 30,
       paddingRight: 30,
@@ -67,6 +80,10 @@ const useStyles = createStyles((theme) => ({
     fontSize: 80,
     color: "#E4E7EC",
     marginBottom: 50,
+    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+      marginBottom: -10,
+    },
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: { marginBottom: 35 },
   },
 
   infoHeader: {
@@ -77,10 +94,10 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1.5,
 
     [`@media (max-width: ${theme.breakpoints.md}px)`]: {
-      fontSize: 8,
+      fontSize: 14,
     },
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      fontSize: 10,
+      fontSize: 12,
     },
   },
 }));
